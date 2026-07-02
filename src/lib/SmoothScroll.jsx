@@ -15,16 +15,21 @@ export default function SmoothScroll({ children }) {
       smoothWheel: true,
       touchMultiplier: 1.2,
     })
+
     lenisRef.current = lenis
 
     lenis.on('scroll', ScrollTrigger.update)
 
-    gsap.ticker.add((time) => {
+    const update = (time) => {
       lenis.raf(time * 1000)
-    })
+    }
+
+    gsap.ticker.add(update)
     gsap.ticker.lagSmoothing(0)
 
     return () => {
+      gsap.ticker.remove(update)
+      lenis.off('scroll', ScrollTrigger.update)
       lenis.destroy()
     }
   }, [])
