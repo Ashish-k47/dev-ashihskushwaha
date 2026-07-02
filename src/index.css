@@ -6,9 +6,11 @@
   color-scheme: dark;
 }
 
+
+
 * {
-  scrollbar-width: none;
-  
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.15) transparent;
 }
 
 html,
@@ -16,8 +18,20 @@ body {
   background: #0a0a0c;
   color: #f4f4f6;
   overscroll-behavior: none;
-  
+  overflow-x: hidden; 
+  width: 100%;
 }
+
+
+html {
+  scrollbar-width: none; 
+  -ms-overflow-style: none; 
+}
+html::-webkit-scrollbar {
+  display: none; 
+}
+
+
 
 body {
   font-family: 'General Sans', sans-serif;
