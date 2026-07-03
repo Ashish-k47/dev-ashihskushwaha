@@ -5,6 +5,11 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 gsap.registerPlugin(ScrollTrigger)
 
+
+ScrollTrigger.config({
+  autoRefreshEvents: 'visibilitychange,DOMContentLoaded,load',
+})
+
 export default function SmoothScroll({ children }) {
   const lenisRef = useRef(null)
 
@@ -14,22 +19,29 @@ export default function SmoothScroll({ children }) {
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       smoothWheel: true,
       touchMultiplier: 1.2,
+ 
+      autoResize: false,
     })
-
     lenisRef.current = lenis
 
     lenis.on('scroll', ScrollTrigger.update)
 
-    const update = (time) => {
+    gsap.ticker.add((time) => {
       lenis.raf(time * 1000)
-    }
-
-    gsap.ticker.add(update)
+    })
     gsap.ticker.lagSmoothing(0)
 
+    let lastWidth = window.innerWidth
+    const onResize = () => {
+
+      if (window.innerWidth === lastWidth) return
+      lastWidth = window.innerWidth
+      lenis.resize()
+    }
+    window.addEventListener('resize', onResize)
+
     return () => {
-      gsap.ticker.remove(update)
-      lenis.off('scroll', ScrollTrigger.update)
+      window.removeEventListener('resize', onResize)
       lenis.destroy()
     }
   }, [])
