@@ -41,14 +41,14 @@ export default function About() {
   const dotRefs = useRef([])
   const travelRef = useRef(null)
 
-  useEffect(() => {
+    useEffect(() => {
     const wrap = wrapRef.current
     const travel = travelRef.current
     const dots = dotRefs.current.filter(Boolean)
     if (!wrap || !travel || dots.length === 0) return
-
+ 
     let trigger
-
+ 
     const setup = () => {
       const wrapRect = wrap.getBoundingClientRect()
       const wrapTop = wrapRect.top + window.scrollY
@@ -58,20 +58,18 @@ export default function About() {
       const startY = positions[0]
       const endY = positions[positions.length - 1]
       const totalDistance = endY - startY || 1
+ 
 
-      // Align the traveling dot's horizontal center exactly to the static
-      // dots' center — measured live, so it always sits ON the line
-      // regardless of dot size or wrap padding.
       const refRect = dots[0].getBoundingClientRect()
       const dotCenterX = refRect.left + refRect.width / 2
       const travelWidth = travel.getBoundingClientRect().width || 16
       const leftPx = dotCenterX - wrapRect.left - travelWidth / 2
-
+ 
       // First point is visible immediately, travel dot starts there.
       gsap.set(travel, { left: leftPx, top: startY, opacity: 1 })
       gsap.set(dots[0], { opacity: 1, scale: 1 })
       dots.slice(1).forEach((d) => gsap.set(d, { opacity: 0, scale: 0 }))
-
+ 
       trigger = ScrollTrigger.create({
         trigger: wrap,
         start: 'top 65%',
@@ -81,14 +79,12 @@ export default function About() {
           const progress = self.progress
           const currentY = startY + totalDistance * progress
 
-          // Fade the traveling dot out over the final stretch so only the
-          // last static point remains once it's reached.
           const fadeStart = 0.94
           const travelOpacity =
             progress <= fadeStart ? 1 : Math.max(0, 1 - (progress - fadeStart) / (1 - fadeStart))
-
+ 
           gsap.set(travel, { top: currentY, opacity: travelOpacity })
-
+ 
           dots.forEach((dot, i) => {
             const dotProgress = (positions[i] - startY) / totalDistance
             const reached = progress >= dotProgress - 0.015
@@ -109,7 +105,12 @@ export default function About() {
       ScrollTrigger.refresh()
     }, 500)
 
+  let lastWidth = window.innerWidth
     const onResize = () => {
+      
+      if (window.innerWidth === lastWidth) return
+      lastWidth = window.innerWidth
+
       trigger?.kill()
       setup()
       ScrollTrigger.refresh()
