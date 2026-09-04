@@ -3,9 +3,8 @@ export const projects = [
     id: 1,
     title: 'HiFi',
     description:
-      'HiFi, a React Native-based real-time mobile application, integrating REST APIs and WebSocket communication with a Node.js backend, while implementing responsive UI components, state management, and production APK deployment.
- (🟢 Live).',
-    stack: ['ReactNative', 'HTML', 'CSS', 'TypeScript', 'Tailwind', 'Mongo DB', 'Web Socket'],
+      'HiFi, a React Native-based real-time mobile application, integrating REST APIs and WebSocket communication with a Node.js backend, while implementing responsive UI components, state management, and production APK deployment. (🟢 Live).',
+    stack: ['ReactNative', 'HTML', 'CSS', 'TypeScript', 'Tailwind', 'MongoDB', 'WebSocket'],
     image: 'https://media.istockphoto.com/id/1181590449/photo/businesswoman-creates-priority-to-do-list-on-sticky-notes.jpg?s=612x612&w=0&k=20&c=OPb-K-q2hP5EjPczCy0uQP9Fq0dCoSE60FxPaNiT4Xk=',
     github: 'https://github.com/Ashish-k47/Hi-Fi',
     live: 'https://expo.dev/accounts/ax-produxion/projects/hifi/builds/9684af2d-2eab-43af-ac4a-a4664cec662d',
@@ -15,8 +14,7 @@ export const projects = [
     id: 2,
     title: 'Netflix Lite',
     description:
-      'Developed Netflix Lite, a React/Next.js-based movie streaming application with TMDB API integration, dynamic movie listings, search functionality, responsive UI, and reusable component architecture.
-(🟢 Live)',
+      'Developed Netflix Lite, a React/Next.js-based movie streaming application with TMDB API integration, dynamic movie listings, search functionality, responsive UI, and reusable component architecture. (🟢 Live)',
     stack: ['React', 'Next', 'Tailwind', 'Redux', 'TMDB API'],
     image:'https://static.vecteezy.com/system/resources/thumbnails/052/408/729/small/a-white-board-with-a-red-and-white-striped-border-sits-in-front-of-two-popcorn-buckets-the-board-is-empty-but-the-buckets-are-full-of-popcorn-photo.jpg',
     github: 'https://github.com/Ashish-k47/netflix-next',
@@ -35,7 +33,7 @@ export const projects = [
   },
    {
     id: 4,
-    title: 'ZeroD - zero distraction',
+    title: 'ZeroD - Zero Distraction',
     description:
       'Focus — Screen Time & App Blocker. A React Native CLI app with a full native Android layer for usage tracking, accessibility-service app blocking, and full-screen intervention overlays (🟡 In Progress).',
     stack: ['React Native', 'JavaScript', 'Android SDK', 'AccessibilityService'],
@@ -67,7 +65,7 @@ export const projects = [
     id: 7,
     title: 'BuyBliss',
     description:
-      'A modern shoping Web Application frontend-based platform that enables users to compare product prices from multiple e-commerce stores. Designed with a clean, responsive interface to deliver a fast and seamless user experience (🟢 Live).',
+      'A modern shopping Web Application frontend-based platform that enables users to compare product prices from multiple e-commerce stores. Designed with a clean, responsive interface to deliver a fast and seamless user experience (🟢 Live).',
     stack: ['HTML', 'CSS', 'JavaScript'],
     image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS76ea7B-Pj1LK9lqITIC9aQy9pL7GrQcVvgZst_hex0g&s=10',
     github: 'https://github.com/Ashish-k47/shoping-web',
