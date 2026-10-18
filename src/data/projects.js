@@ -81,5 +81,15 @@ export const projects = [
     github: 'https://github.com/Ashish-k47',
     live: '#',
   },
+  {
+    id: 9,
+    title: 'Reflex — Boxing Reaction Trainer',
+    description:
+      'A machine learning-based movie recommender built with Python and Streamlit, suggesting movies based on genre, content, and similarity to your selected movies.(🟢 Live)',
+    stack: ['Python', 'MediaPipe', 'NumPy'],
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcScDFA6ILEY6u4k2HhCQjUqkbqvWf-VC2sWaXPXeK5PVA&s=10',
+    github: 'https://github.com/Ashish-k47/Movie-Recommendation',
+    live: 'https://movie-recommender-by-ashish.streamlit.app/',
+  },
  
 ]
